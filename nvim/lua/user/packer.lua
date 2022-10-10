@@ -6,17 +6,20 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
     use 'neovim/nvim-lspconfig'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
     }
+    use 'nvim-treesitter/nvim-treesitter-context'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'junegunn/fzf.vim'
+    use 'ThePrimeagen/harpoon'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
