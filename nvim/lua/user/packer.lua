@@ -18,14 +18,15 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'simrat39/rust-tools.nvim'
+    use 'rust-lang/rust.vim'
     use 'junegunn/fzf.vim'
     use 'ThePrimeagen/harpoon'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
-    use 'jreybert/vimagit'
-    use 'rust-lang/rust.vim'
     use 'tpope/vim-commentary'
+    use 'tpope/vim-fugitive'
     use {
 	    "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
