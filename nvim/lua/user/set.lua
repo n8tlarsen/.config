@@ -16,3 +16,11 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.g.mapleader = " "
+
+vim.g.DoxygenToolkit_startCommentTag   = "/***********************************************************************************************//**"
+vim.g.DoxygenToolkit_startCommentBlock = "/*"
+vim.g.DoxygenToolkit_interCommentTag   = " * "
+vim.g.DoxygenToolkit_interCommentBlock = " * "
+vim.g.DoxygenToolkit_endCommentTag     = " **************************************************************************************************/"
+vim.g.DoxygenToolkit_endCommentBlock   = "*/"
+vim.g.DoxygenToolkit_authorName  = "Nathan Larsen" 

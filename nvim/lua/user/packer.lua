@@ -20,11 +20,14 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'simrat39/rust-tools.nvim'
     use 'rust-lang/rust.vim'
+    use {'junegunn/fzf', rtp = "plugin"}
     use 'junegunn/fzf.vim'
     use 'ThePrimeagen/harpoon'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'vim-scripts/DoxygenToolkit.vim'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use {
