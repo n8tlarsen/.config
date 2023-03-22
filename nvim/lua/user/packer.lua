@@ -23,8 +23,10 @@ return require('packer').startup(function(use)
     use {'junegunn/fzf', rtp = "plugin"}
     use 'junegunn/fzf.vim'
     use 'ThePrimeagen/harpoon'
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true}
+    }
     use 'airblade/vim-gitgutter'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'vim-scripts/DoxygenToolkit.vim'
