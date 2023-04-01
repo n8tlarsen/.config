@@ -10,3 +10,5 @@ vim.diagnostic.config({
     severity_sort = true
 })
 vim.keymap.set("n", "<leader>y", function() vim.diagnostic.open_float({scope = "line"}) end)
+vim.keymap.set("n", "<leader>d[", function() vim.diagnostic.goto_prev() end)
+vim.keymap.set("n", "<leader>d]", function() vim.diagnostic.goto_next() end)

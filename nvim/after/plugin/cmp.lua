@@ -1,4 +1,5 @@
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local luasnip = require('luasnip')
 local cmp = require('cmp')
 cmp.setup({
     snippet = {
@@ -9,10 +10,18 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<Tab>'] = cmp.mapping(function(fallback) 
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, {"i", "s"}),
         ['<C-Space>'] = cmp.mapping.complete(), -- Open completion engine
         ['<C-e>'] = cmp.mapping.abort(), -- Close completion engine
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
