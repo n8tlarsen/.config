@@ -1,0 +1,5 @@
+[core]
+	autocrlf = input
+	editor = vim
+[alias]
+    ll = log --graph --pretty=tformat:'%C(yellow)%h%Creset %C(auto)%d %s %C(8)<%an, %cr>%Creset' --abbrev-commit --decorate=short
