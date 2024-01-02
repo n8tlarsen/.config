@@ -1,0 +1,292 @@
+{
+	"std_context" : {
+		"prefix": "ieee",
+		"body": [
+			"library ieee;",
+			"use ieee.std_logic_1164.all;",
+			"use ieee.numeric_std.all;",
+			"$0"
+		]
+	},
+    "title" : {
+        "prefix": "tt",
+        "body": [
+            "----------------------------------------------------------------------------------------------------",
+            "-- $0",
+            "----------------------------------------------------------------------------------------------------"
+        ]
+    },
+	"entity" : {
+		"prefix": "entity",
+		"body": [
+			"entity ${1:label} is",
+			"\t$0",
+			"end entity ${1:label};"
+		]
+	},
+	"generic" : {
+		"prefix": "generic",
+		"body": [
+			"generic (",
+			"\t$0",
+			");"
+		]
+	},
+	"port" : {
+		"prefix": "port",
+		"body": [
+			"port (",
+			"\t$0",
+			");"
+		]
+	},
+	"architecture" : {
+		"prefix": "architecture",
+		"body": [
+			"architecture ${1:label} of ${2:entity} is",
+			"begin",
+			"\t$0",
+			"end architecture ${1:label};"
+		]
+	},
+	"package" : {
+		"prefix": "package",
+		"body": [
+			"package ${1:label} is",
+			"\t$0",
+			"end package ${1:label};"
+		]
+	},
+	"package body" : {
+		"prefix": "package body",
+		"body": [
+			"package body ${1:label} is",
+			"\t$0",
+			"end package body ${1:label};"
+		]
+	},
+	"type" : {
+		"prefix": "type",
+		"body": [
+			"type ${1:label} is $0"
+		]
+	},
+	"subtype" : {
+		"prefix": "subtype",
+		"body": [
+			"subtype ${1:label} is $0"
+		]
+	},
+	"record" : {
+		"prefix": "record",
+		"body": [
+			"record",
+			"\t$0",
+			"end record;"
+		]
+	},
+	"process" : {
+		"prefix": "process",
+		"body": [
+			"process ($1)",
+			"begin",
+			"\t$0",
+			"end process;"
+		]
+	},
+	"combinational process" : {
+		"prefix": "proc",
+		"body": [
+			"${1:label} : process(all)",
+			"begin",
+			"\t$0",
+			"end process ${1:label};"
+		]
+	},
+	"sequential process w/ async reset" : {
+		"prefix": "proa",
+		"body": [
+			"${1:label} : process(${2:clock}, ${3:reset})",
+			"begin",
+			"\tif (${3:reset} = '${4:1}') then",
+			"\t\t$0",
+			"\telsif rising_edge(${2:clock}) then",
+			"\t\t",
+			"\tend if;",
+			"end process ${1:label};"
+		]
+	},
+	"sequential process w/ sync reset" : {
+		"prefix": "pros",
+		"body": [
+			"${1:label} : process(${2:clock})",
+			"begin",
+			"\tif rising_edge(${2:clock}) then",
+			"\t\tif (${2:reset} = '${3:1}') then",
+			"\t\t\t$0",
+			"\t\telse",
+			"\t\t\t",
+			"\t\tend if;",
+			"\tend if;",
+			"end process ${1:label};"
+		]
+	},
+	"if..then" : {
+		"prefix": "if",
+		"body": [
+			"if ($1) then",
+			"\t$0",
+			"end if;"
+		]
+	},
+	"elsif" : {
+		"prefix": "elsif",
+		"body": [
+			"elsif ($1) then",
+			"\t$0"
+		]
+	},
+	"else" : {
+		"prefix": "else",
+		"body": [
+			"else",
+			"\t$0"
+		]
+	},
+	"case statement" : {
+		"prefix": "case",
+		"body": [
+			"case $1 is",
+			"\twhen $0 =>",
+			"end case;"
+		]
+	},
+	"generic map": {
+		"prefix": "mapg",
+		"body": [
+			"${1:label} : entity work.${2:entity_name}",
+			"generic map(",
+			"\t$0",
+			")",
+			"port map(",
+			"\t",
+			");"
+		]
+	},
+	"counter instance": {
+		"prefix": "counter",
+		"body": [
+			"${1:label} : entity primary.counter",
+			"generic map(",
+            "\tdwidth => ${2:8},",
+            "\tqlower => ${3:x\"00\"},",
+            "\tqreset => ${4:x\"00\"},",
+            "\tqupper => ${5:x\"FF\"} ",
+			")",
+			"port map(",
+            "\tclock  => $0,",
+            "\tclken  => '1',",
+            "\taclr   => '0',",
+            "\tsclr   => '0',",
+            "\tload   => '0',",
+            "\tupdown => '1',",
+            "\tcin    => '1',",
+            "\tdata   => ,",
+            "\tq      => ,",
+            "\tcout   => ",
+			");"
+		]
+	},
+	"shiftreg instance": {
+		"prefix": "shiftreg",
+		"body": [
+			"${1:label} : entity primary.shiftreg",
+			"generic map(",
+            "\tdwidth    => ${2:8},",
+            "\tqreset    => ${3:x\"00\"},",
+            "\tdirection => ${4:\"LEFT\"}",
+			")",
+			"port map(",
+            "\tclock    => $0,",
+            "\tclken    => '1',",
+            "\taclr     => '0',",
+            "\tsclr     => '0',",
+            "\tload     => '0',",
+            "\tshiftin  => '1',",
+            "\tdata     => ,",
+            "\tq        => ,",
+            "\tshiftout => ",
+			");"
+		]
+	},
+	"edge detect instance": {
+		"prefix": "edge_detect",
+		"body": [
+			"${1:label} : entity primary.edge_detect",
+			"generic map(",
+            "\tpipeline_in   => ${2:0},",
+            "\tpipeline_out  => ${3:0},",
+            "\tlevel_lockout => ${4:true}",
+			")",
+			"port map(",
+            "\tclock => $0,",
+            "\tclken => '1',",
+            "\taclr  => '0',",
+            "\tsclr  => '0',",
+            "\td     => ,",
+            "\tq     => ",
+			");"
+		]
+	},
+	"port map": {
+		"prefix": "mapp",
+		"body": [
+			"${1:label} : entity work.${2:entity_name}",
+			"port map(",
+			"\t$0",
+			");"
+		]
+	},
+	"for..loop": {
+		"prefix": "forl",
+		"body": [
+			"for ${1:x} in ${2:bot} to ${3:top} loop",
+			"\t$0",
+			"end loop;"
+		]
+	},
+	"for..generate": {
+		"prefix": "forg",
+		"body": [
+			"${1:label} : for ${2:x} in ${3:bot} to ${4:top} generate",
+			"\t$0",
+			"end generate ${1:label};"
+		]
+	},
+	"if..generate": {
+		"prefix": "ifg",
+		"body": [
+			"${1:label} : if (${2:true}) generate",
+			"\t$0",
+			"end generate ${1:label};"
+		]
+	},
+	"function" : {
+		"prefix": "function",
+		"body": [
+			"function ${1:name} (${2:<name> : <type> := <default>; ...}) return ${3:type} is",
+			"begin",
+			"\t$0",
+			"end function ${1:name};"
+		]
+	},
+	"procedure" : {
+		"prefix": "procedure",
+		"body": [
+			"procedure ${1:name} (${2:signal|variable|constant <name> : in|out|inout <type>; ...}) is",
+			"begin",
+			"\t$0",
+			"end procedure ${1:name};"
+		]
+	}
+}

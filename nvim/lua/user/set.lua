@@ -20,9 +20,8 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n","<leader>e","<cmd>Ex<CR>")
 vim.keymap.set("n","<leader> ","<cmd>b#<CR>")
-vim.keymap.set("n","<leader>f","<cmd>Rg<CR>")
 vim.keymap.set("t","<Esc>","<C-\\><C-n>")
-vim.keymap.set("v","p",'"_dP')
+vim.keymap.set("v","P",'"_dP')
 
 vim.g.DoxygenToolkit_startCommentTag   = "/***********************************************************************************************//**"
 vim.g.DoxygenToolkit_startCommentBlock = "/*"

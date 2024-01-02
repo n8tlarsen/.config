@@ -15,8 +15,14 @@ require("lazy").setup({
     'saadparwaiz1/cmp_luasnip',
     'simrat39/rust-tools.nvim',
     'rust-lang/rust.vim',
-    {'junegunn/fzf', rtp = "plugin"},
-    'junegunn/fzf.vim',
+    'junegunn/vim-easy-align',
+    {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release &&\
+        cmake --build build --config Release && cmake --install build --prefix build'
+    },
+    'dhruvasagar/vim-table-mode',
     'ThePrimeagen/harpoon',
     {
         'nvim-lualine/lualine.nvim',
@@ -27,6 +33,7 @@ require("lazy").setup({
     'vim-scripts/DoxygenToolkit.vim',
     'tpope/vim-commentary',
     'tpope/vim-fugitive',
+    'tpope/vim-surround',
     {
 	    "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end

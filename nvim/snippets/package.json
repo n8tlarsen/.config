@@ -1,0 +1,25 @@
+{
+	"name": "vhdl",
+	"displayName": "VHDL",
+	"description": "VHDL snippets",
+	"version": "0.0.3",
+	"publisher": "mshr-h",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mshr-h/vscode-vhdl-support.git"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "vhdl",
+				"path": "vhdl.json"
+			}
+		]
+	}
+}
