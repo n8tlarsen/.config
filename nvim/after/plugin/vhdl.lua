@@ -15,3 +15,4 @@ lspconfig.rust_hdl.setup{
     on_attach=on_attach
 }
 
+vim.api.nvim_create_autocmd("FileType", {pattern = "vhdl", command = "setlocal commentstring=--%s"})

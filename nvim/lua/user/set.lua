@@ -22,6 +22,7 @@ vim.keymap.set("n","<leader>e","<cmd>Ex<CR>")
 vim.keymap.set("n","<leader> ","<cmd>b#<CR>")
 vim.keymap.set("t","<Esc>","<C-\\><C-n>")
 vim.keymap.set("v","P",'"_dP')
+vim.keymap.set("n", "d;", "<cmd>keepp.s/\\s\\+$//e<CR>")
 
 vim.g.DoxygenToolkit_startCommentTag   = "/***********************************************************************************************//**"
 vim.g.DoxygenToolkit_startCommentBlock = "/*"
