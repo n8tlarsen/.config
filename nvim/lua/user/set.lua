@@ -18,6 +18,12 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = " "
 
+vim.cmd("syntax enable")
+vim.cmd("filetype plugin indent on")
+
+vim.opt.splitright = true
+vim.cmd("ca vG vertical Git")
+
 vim.keymap.set("n","<leader>e","<cmd>Ex<CR>")
 vim.keymap.set("n","<leader> ","<cmd>b#<CR>")
 vim.keymap.set("t","<Esc>","<C-\\><C-n>")
