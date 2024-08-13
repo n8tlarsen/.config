@@ -35,6 +35,9 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
 }
+require('lspconfig')['clangd'].setup {
+    capabilities = capabilities
+}
 cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()

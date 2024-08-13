@@ -14,9 +14,11 @@ vim.keymap.set("n", "<leader>y", function() vim.diagnostic.open_float({scope = "
 vim.keymap.set('n', '[d', function () 
     vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR}) 
     end)
+vim.keymap.set('n', '[D', function () vim.diagnostic.goto_prev() end)
 vim.keymap.set('n', ']d', function () 
     vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})
     end)
+vim.keymap.set('n', ']D', function () vim.diagnostic.goto_next() end)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -50,3 +52,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end, opts)
     end,
 })
+
+require'lspconfig'.clangd.setup{}
