@@ -23,7 +23,11 @@ require("lazy").setup({
         cmake --build build --config Release && cmake --install build --prefix build'
     },
     'dhruvasagar/vim-table-mode',
-    'ThePrimeagen/harpoon',
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
     {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true}
