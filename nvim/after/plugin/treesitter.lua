@@ -21,7 +21,7 @@ require'nvim-treesitter.configs'.setup {
     },
     indent = {
         enable = true,
-        disable = {"rust"},
+        disable = {"rust", "cmake"},
     }
 }
 

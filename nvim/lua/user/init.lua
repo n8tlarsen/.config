@@ -42,8 +42,46 @@ require("lazy").setup({
 	    "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     },
+
     {
         'chriskempson/tomorrow-theme',
         config = function(plugin) vim.opt.rtp:append(plugin.dir .. "/vim") end,
     },
+    {
+        'Iron-E/nvim-highlite',
+        config = function(_, opts)
+            -- OPTIONAL: setup the plugin. See "Configuration" for information
+            require('highlite').setup {generator = {plugins = {vim = false}}}
+            
+            vim.cmd.colorscheme('highlite-tomorrow-night-eighties')
+            -- or one of the alternate colorschemes (see the "Built-in Colorschemes" section)
+            -- vim.api.nvim_command 'colorscheme highlite'
+        end,
+        lazy = false,
+        priority = math.huge
+    },
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*",  -- recommended, use latest release instead of latest commit
+        lazy = true,
+        event = {
+          -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+          -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+          -- refer to `:h file-pattern` for more examples
+          "BufReadPre " .. vim.fn.expand "~" .. "/vaults/*.md",
+          "BufNewFile " .. vim.fn.expand "~" .. "/vaults/*.md",
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "personal",
+                    path = "~/vaults/personal",
+                },
+                {
+                    name = "work",
+                    path = "~/vaults/work",
+                },
+            },
+        },
+    }
 })

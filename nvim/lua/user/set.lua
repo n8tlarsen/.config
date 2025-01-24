@@ -4,6 +4,8 @@ vim.opt.colorcolumn = '101'
 vim.opt.scrolloff = 16
 vim.opt.wrap = false
 vim.opt.clipboard = unnamedplus
+vim.opt.termguicolors = true
+vim.opt.conceallevel = 1
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
