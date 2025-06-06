@@ -42,7 +42,6 @@ require("lazy").setup({
 	    "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     },
-
     {
         'chriskempson/tomorrow-theme',
         config = function(plugin) vim.opt.rtp:append(plugin.dir .. "/vim") end,
@@ -61,6 +60,15 @@ require("lazy").setup({
         priority = math.huge
     },
     {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function(plugin)
+            vim.cmd [[Lazy load markdown-preview.nvim]]
+            vim.fn["mkdp#util#install"]() 
+        end,
+    },
+    {
         "epwalsh/obsidian.nvim",
         version = "*",  -- recommended, use latest release instead of latest commit
         lazy = true,
@@ -71,12 +79,11 @@ require("lazy").setup({
           "BufReadPre " .. vim.fn.expand "~" .. "/vaults/*.md",
           "BufNewFile " .. vim.fn.expand "~" .. "/vaults/*.md",
         },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
         opts = {
             workspaces = {
-                {
-                    name = "personal",
-                    path = "~/vaults/personal",
-                },
                 {
                     name = "work",
                     path = "~/vaults/work",
