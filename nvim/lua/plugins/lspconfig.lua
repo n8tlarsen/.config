@@ -7,10 +7,6 @@ return {
         -- Set up lspconfig and completion with cmp
         local lspconfig = require('lspconfig')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        lspconfig['rust_analyzer'].setup({
-            on_attach = on_attach,
-            capabilities = capabilities
-        })
         lspconfig['clangd'].setup({
             on_attach = on_attach,
             capabilities = capabilities

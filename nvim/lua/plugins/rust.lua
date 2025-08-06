@@ -1,17 +1,27 @@
 return {
     {
-        'simrat39/rust-tools.nvim',
-        opts = {
-            server = {
-                on_attach = function(_, bufnr)
-                    -- Hover actions
-                    vim.keymap.set("n", "<Leader>h", require('rust-tools').hover_actions.hover_actions, { buffer = bufnr })
-                    -- Code action groups
-                    vim.keymap.set("n", "<Leader>c", require('rust-tools').code_action_group.code_action_group, { buffer = bufnr })
-                end,
-            },
-        }
+        'mrcjkb/rustaceanvim',
+        version = '^6', -- Recommended
+        lazy = false, -- This plugin is already lazy
+        ft = "rust",
+        config = function ()
+            local cfg = require('rustaceanvim.config')
+            local home = os.getenv("HOME")
+            local codelldb_path = home .. '/codelldb/extension/adapter/codelldb'
+            local liblldb_path  = home .. '/codelldb/extension/lldb/lib/liblldb.so'
+            vim.g.rustaceanvim  = {
+                dap = {
+                    adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path)
+                }
+            }
+        end,
     },
-    'rust-lang/rust.vim',
+    {
+        'rust-lang/rust.vim',
+        ft = "rust",
+        init = function ()
+            vim.g.rustfmt_autosave = 1
+        end
+    },
 }
 
