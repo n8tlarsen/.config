@@ -6,6 +6,7 @@ return {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'f3fora/cmp-spell',
             "windwp/nvim-autopairs",
         },
         config = function ()
@@ -35,6 +36,16 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
+                    {
+                        name = 'spell',
+                        option = {
+                            keep_all_entries = false,
+                            enable_in_context = function()
+                                return (vim.bo.filetype == "markdown")
+                            end,
+                            preselect_corret_word = true,
+                        },
+                    },
                 }, {
                         { name = 'buffer'},
                 })
