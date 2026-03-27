@@ -11,10 +11,12 @@ return {
             -- on_attach = on_attach,
             capabilities = capabilities
         })
+        vim.lsp.enable('clangd')
         vim.lsp.config('vhdl_ls', {
             -- on_attach = on_attach,
             capabilities = capabilities
         })
+        vim.lsp.enable('vhdl_ls')
         -- Diagnostic config
         vim.diagnostic.config({
             virtual_text = {
