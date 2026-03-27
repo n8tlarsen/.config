@@ -2,17 +2,17 @@ return {
     'neovim/nvim-lspconfig',
     depenencies = {
         'hrsh7th/cmp-nvim-lsp',
+        'mason-org/mason.nvim',
     },
     config = function()
         -- Set up lspconfig and completion with cmp
-        local lspconfig = require('lspconfig')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        lspconfig['clangd'].setup({
-            on_attach = on_attach,
+        vim.lsp.config('clangd', {
+            -- on_attach = on_attach,
             capabilities = capabilities
         })
-        lspconfig['vhdl_ls'].setup({
-            on_attach = on_attach,
+        vim.lsp.config('vhdl_ls', {
+            -- on_attach = on_attach,
             capabilities = capabilities
         })
         -- Diagnostic config
