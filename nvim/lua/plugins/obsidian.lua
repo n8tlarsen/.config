@@ -1,7 +1,7 @@
 return {
     {
-        "epwalsh/obsidian.nvim",
-        version = "*",  -- recommended, use latest release instead of latest commit
+        "obsidian-nvim/obsidian.nvim",
+        version = "*", -- use latest release, remove to use latest commit
         lazy = true,
         event = {
           -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -20,5 +20,14 @@ return {
                 },
             },
         },
+        keys = {
+            {
+                '<leader>fn',
+                function ()
+                    require("obsidian.commands.search")({ args = "" })
+                end,
+                desc = "Obsidian: search notes"
+            }
+        }
     }
 }
