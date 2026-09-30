@@ -20,6 +20,9 @@ return {
                     path = "~/notes/nathan",
                 },
             },
+           checkbox = {
+               order = { " ", "x" },
+           },
         },
         keys = {
             {
